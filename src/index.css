@@ -1,96 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* =====================================================
+   DESIGN SYSTEM — Neurologista Acolhedor
+   Paleta: Lavanda suave + Verde sage + Fundo creme
+   Fontes: Playfair Display (títulos) + Lato (corpo)
+   ===================================================== */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Fundo creme acolhedor */
+    --background: 30 30% 97%;
+    --foreground: 260 20% 20%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Cards e popovers */
+    --card: 30 40% 99%;
+    --card-foreground: 260 20% 20%;
+    --popover: 30 40% 99%;
+    --popover-foreground: 260 20% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Lavanda suave — cor principal */
+    --primary: 260 40% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Verde sage — accent secundário */
+    --secondary: 150 30% 55%;
+    --secondary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Tons neutros quentes */
+    --muted: 30 20% 93%;
+    --muted-foreground: 260 15% 45%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent lavanda mais claro */
+    --accent: 260 40% 94%;
+    --accent-foreground: 260 40% 35%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --border: 260 20% 88%;
+    --input: 260 20% 88%;
+    --ring: 260 40% 60%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Bordas mais arredondadas */
+    --radius: 1rem;
 
-    --radius: 0.5rem;
+    /* Custom tokens */
+    --lavanda: 260 40% 60%;
+    --lavanda-light: 260 40% 94%;
+    --lavanda-pale: 260 35% 97%;
+    --sage: 150 30% 55%;
+    --sage-light: 150 30% 93%;
+    --creme: 30 30% 97%;
+    --creme-dark: 30 25% 92%;
+    --warm-dark: 260 20% 20%;
+    --warm-mid: 260 15% 40%;
 
-    --sidebar-background: 0 0% 98%;
+    /* Sombras suaves */
+    --shadow-soft: 0 4px 24px -4px hsl(260 40% 60% / 0.12);
+    --shadow-card: 0 2px 16px -2px hsl(260 40% 60% / 0.10);
+    --shadow-hover: 0 8px 32px -6px hsl(260 40% 60% / 0.22);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradientes */
+    --gradient-hero: linear-gradient(135deg, hsl(260 40% 60% / 0.15), hsl(150 30% 55% / 0.10));
+    --gradient-section: linear-gradient(180deg, hsl(30 30% 97%), hsl(260 35% 96%));
+    --gradient-primary: linear-gradient(135deg, hsl(260 40% 60%), hsl(260 35% 70%));
+    --gradient-sage: linear-gradient(135deg, hsl(150 30% 55%), hsl(150 35% 65%));
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 30 30% 97%;
+    --sidebar-foreground: 260 20% 25%;
+    --sidebar-primary: 260 40% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 40% 94%;
+    --sidebar-accent-foreground: 260 20% 25%;
+    --sidebar-border: 260 20% 88%;
+    --sidebar-ring: 260 40% 60%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Tons escuros quentes — não preto puro */
+    --background: 260 20% 12%;
+    --foreground: 30 20% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 260 18% 16%;
+    --card-foreground: 30 20% 92%;
+    --popover: 260 18% 16%;
+    --popover-foreground: 30 20% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --primary: 260 40% 68%;
+    --primary-foreground: 260 20% 10%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 150 30% 50%;
+    --secondary-foreground: 260 20% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --muted: 260 15% 22%;
+    --muted-foreground: 260 10% 60%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 260 25% 22%;
+    --accent-foreground: 260 40% 80%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --border: 260 15% 24%;
+    --input: 260 15% 24%;
+    --ring: 260 40% 68%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --lavanda: 260 40% 68%;
+    --lavanda-light: 260 25% 22%;
+    --sage: 150 30% 50%;
+    --creme: 260 20% 12%;
+
+    --shadow-soft: 0 4px 24px -4px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 2px 16px -2px hsl(0 0% 0% / 0.25);
+    --shadow-hover: 0 8px 32px -6px hsl(0 0% 0% / 0.4);
+
+    --sidebar-background: 260 20% 10%;
+    --sidebar-foreground: 30 20% 88%;
+    --sidebar-primary: 260 40% 68%;
+    --sidebar-primary-foreground: 260 20% 10%;
+    --sidebar-accent: 260 25% 20%;
+    --sidebar-accent-foreground: 30 20% 88%;
+    --sidebar-border: 260 15% 20%;
+    --sidebar-ring: 260 40% 68%;
   }
 }
 
@@ -99,7 +134,78 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
   }
 }
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-body {
+    font-family: 'Lato', sans-serif;
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .gradient-section {
+    background: var(--gradient-section);
+  }
+  .text-lavanda {
+    color: hsl(var(--lavanda));
+  }
+  .bg-lavanda {
+    background-color: hsl(var(--lavanda));
+  }
+  .bg-lavanda-light {
+    background-color: hsl(var(--lavanda-light));
+  }
+  .bg-sage {
+    background-color: hsl(var(--sage));
+  }
+  .bg-sage-light {
+    background-color: hsl(var(--sage-light));
+  }
+  .bg-creme {
+    background-color: hsl(var(--creme));
+  }
+  .bg-creme-dark {
+    background-color: hsl(var(--creme-dark));
+  }
+  .text-warm-dark {
+    color: hsl(var(--warm-dark));
+  }
+  .text-warm-mid {
+    color: hsl(var(--warm-mid));
+  }
+  .animate-gentle {
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+  }
+  .blob-decoration {
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  }
+}
+
